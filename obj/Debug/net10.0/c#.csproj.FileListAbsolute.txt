@@ -12,3 +12,4 @@ C:\Users\myto\Desktop\c#\obj\Debug\net10.0\refint\c#.dll
 C:\Users\myto\Desktop\c#\obj\Debug\net10.0\c#.pdb
 C:\Users\myto\Desktop\c#\obj\Debug\net10.0\c#.genruntimeconfig.cache
 C:\Users\myto\Desktop\c#\obj\Debug\net10.0\ref\c#.dll
+C:\Users\myto\Desktop\c#\obj\Debug\net10.0\c#.sourcelink.json

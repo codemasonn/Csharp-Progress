@@ -1,16 +1,6 @@
 ﻿using System;
 
-
-//Creamos una lista de dispositivos
-
 List<Dispositivo> miEcosistema = new List<Dispositivo>();
-
-/* cya tneemos programados los objetos y aca los creamos, le damos la vida en el codigo.
-a la heladera le damos un nombre, le damos la variable temperaturaactual y a este le definimos un numero
-
-a la television lo mismo, un nombre, le asignamos la variable de canalactual y le definimos el numero.
-*/
-
 
 Heladera heladeraMason = new Heladera();
 heladeraMason.Nombre = "Heladera Samsung";
@@ -36,28 +26,71 @@ foreach (Dispositivo aparato in miEcosistema)
     aparato.Encender();
 
 }
+/*para evitar que el programa falle usamos una estructura llamada try-catch
+  try: pones el codigo que pensas que va a fallar.
+  catch: si algo sale mal adentro de try el programa no explota, catch 
+  es un mensaje de error amigable.
+*/
+
+Console.WriteLine("¿Qué acción querés hacer con la Heladera?");
+Console.WriteLine("Encender");
+Console.WriteLine("Apagar");
+
+string accion = Console.ReadLine()!; 
 
 
+switch(accion)
+{
+    case "Encender":
+    heladeraMason.Encender();
+    break;
+
+    case "Apagar":
+    heladeraMason.Apagar();
+    break;
+
+    default:
+    Console.WriteLine("Opcion incorrecta, no existe esa accion.");
+    break;
+
+}
+
+{
+    if (heladeraMason.EstaEncendido == false)
+    {
+        Console.WriteLine("La heladera esta apagada.");
+    }
 
 
+else
+Console.WriteLine("Porfavor, Ingresa la temperatura para la heladera (-1 a 7 grados)");
+   {
+    try
+        {
+            string entradaUsuario = Console.ReadLine()!.ToLower();
+            int temperaturaUsuario = int.Parse(entradaUsuario); //convierto el texto a un entero
 
-
-
-
-
-
-/*crear clase base, esta clase hace de "padre", es el pilar para las otras clases.
-     esta clase puede tener dos tipos de propiedad 
-        string o bool
-        string = nombre
-        bool = verdadero o falso
-        double = 6.5
+              if (temperaturaUsuario >= -1 && temperaturaUsuario <= 7)
+                {
+                heladeraMason.TemperaturaActual = temperaturaUsuario;
         
+               Console.WriteLine ("Ajustando temperatura a " + heladeraMason.TemperaturaActual + " grados.");
+                }
+             else
+                {
+                  Console.WriteLine("Error, la heladera no soporta esa temperatura, debes poner una adecuada.");
+                }
+        }
+         catch
+        {
+            Console.WriteLine("Error, coloque un numero valido.");
+        }
+    }
+ 
+}
 
-    ej: public void encender()
-        public void Apagar()
 
-        en uno la variable EstaEncendido va a estar en True y en otro en False*/
+
 
 public class Dispositivo
 
@@ -80,21 +113,6 @@ public class Dispositivo
 }
 
 
-
-
-
-/*Crear las clases "hijas", se le llama herencia
-
-    como estamos hablando de dispositivos podemos crear la clase
-    heladera esta va a estar heredada de Dispositivo
-    
-    La heladera va a tener un int (entero) que estaria en Celcius, la variable se llama temperaturaactual
-    luego la vamos a poder modificar
-
-    tambien creamos un objeto llamado television, tambien le damos una variable 
-    
-     */
-
 public class Heladera : Dispositivo 
 {
     public int TemperaturaActual;
@@ -105,6 +123,3 @@ public class Television : Dispositivo
 {
     public int CanalActual;
 }
-
-
-
